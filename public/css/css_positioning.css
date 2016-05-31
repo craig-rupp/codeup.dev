@@ -1,0 +1,57 @@
+h2{
+	color: purple;
+	text-decoration: underline;
+	font-weight: bold;
+
+}
+a {
+	color: purple;
+}
+.box{
+	width: 50px;
+	height: 50px;
+	border: 1px solid black;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	float:left;
+}
+img {
+	height: 35px;
+	width: 35px;
+	margin-left: 45px;
+	margin-top: -65px;
+}
+p{
+	color: white;
+	font-weight: bold;
+	position: absolute;
+	font-size: .6em;
+}
+
+#red-box{
+	background-color: red;
+	
+}
+#orangebox{
+	background-color: orange;
+	margin-left: 50px;
+
+}
+#yellowbox{
+	background-color: yellow;
+	margin-left: 50px;
+}
+#greenbox{
+	background-color: green;
+	clear: left;
+}
+#bluebox{
+	background-color: blue;
+	margin-left: 50px;
+
+}
+#purplebox{
+	background-color: purple;
+	margin-left: 50px;
+
+}

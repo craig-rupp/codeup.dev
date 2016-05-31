@@ -1,0 +1,31 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#lcolumn{
+	float: left;
+	width: 20%;
+	height: 650px;
+	background-color: #999f8e; 
+	vertical-align: top;
+}
+#lcolumn p {
+	margin-left: 5px;
+	margin-bottom: -5px;
+}
+#rcolumn {
+	float: right;
+	width: 80%;
+	height: 650px;
+	vertical-align: top;
+	background-color: #d2d8c7;
+}
+#pstuff {
+	font-size: 1.2em;
+}
+
+
+
+

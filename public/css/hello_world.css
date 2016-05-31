@@ -1,0 +1,31 @@
+#container{
+	background-color: #990000;
+	background-image: url("css/space.jpg");
+	background-size: fill;
+	background-position: center;
+
+}
+#container h1,h2 {
+	color: red;
+	text-decoration: underline;
+	font-family: 'Montserrat', sans-serif;
+}
+#container p,li,tr,td,dt,dd,blockquote,a {
+	color:papayawhip;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size:.9em;
+}
+#container li,tr,td,dt,dd{
+	list-style: square;
+	padding:10px;
+}
+#container a:link{
+	color: green;
+
+}
+#container a:visited {
+	color: #9a5ed6;
+}
+#container a:hover {
+	color: papayawhip;
+}
