@@ -1,3 +1,3 @@
-<script>
-	console.log("Hello from external JavaScript");
-</script>
+'use strict';
+
+console.log("Hello from external JavaScript");
