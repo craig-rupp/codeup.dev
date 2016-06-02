@@ -1,4 +1,4 @@
 .DS_STORE
 .env
 r.txt
-js/while_loop.js
+public/js/while_loop.js
