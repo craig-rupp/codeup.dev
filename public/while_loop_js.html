@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>While Loop</title>
+		</head>
+		<body>
+			<script>
+
+				var conevar allCones = Math.floor(Math.random() * 50) + 50;
+
+				var cones;
+				var remaining = allCones
+				var response;
+				do{
+					cones = Math.floor(Math.random() * 5) + 1;
+					remaining = remaining - cones;
+					response = cones + ' cones sold...';
+
+					if (remaining < 0) {
+						response = 'Sorry, Cannot sell you ' + 
+						cones + ' cones I only have ' + (remaining + cones); 
+					};
+					if (remaining ==0) {
+						response = 'Hey, I sold all of my Cones!';
+					};
+					console.log(response)
+				} while (remaining > 0);
+
+				var numero = 2;
+
+				do {	
+					console.log(numero);
+					numero = numero * 2;
+				} while (numero <= 65536);
+
+			</script>
+		</body>
+	</html>
