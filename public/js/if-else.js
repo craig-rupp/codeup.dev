@@ -15,30 +15,35 @@ var cameronPaid = 180;
 var ryanPaid = 250;
 var georgePaid = 320;
 
-if (cameronPaid > 200) {
-	console.log('The discount was reached' + 'he saved ' + cameronPaid * .35);
+var requiredForDiscount = 200;
+var discount = .35;
+
+var cameronCostWithDiscount;
+if (cameronPaid > requiredForDiscount) {
+	cameronCostWithDiscount = cameronPaid - (cameronPaid * discount);
 } else {
-	 console.log("Cameron did not reach the discount, he spent" + cameronPaid + " he was 21 dollars short");
+	cameronCostWithDiscount = cameronPaid;
 }
+console.log('Cameron: '+ cameronPaid + ', ' + cameronCostWithDiscount);
 
-if (ryanPaid > 200) {
-	console.log('The discount was reached for Ryan' + ' he saved ' + ryanPaid * .35);
+var ryanCostWithDiscount;
+if (ryanPaid > requiredForDiscount){
+	ryanCostWithDiscount = ryanPaid - (ryanPaid * discount);
 }	else {
-	 console.log("Ryan did not reach the discount, he spent" + ryanPaid + " he was 21 dollars short");
+	ryanCostWithDiscount = ryanPaid;
 }
+console.log('Ryan: ' + ryanPaid + ', ' + ryanCostWithDiscount);
 
-if (georgePaid > 200) {
-	console.log('The discount was reached for George' + ' he saved ' + georgePaid * .35);
+var georgeCostWithDiscount;
+if (georgePaid > requiredForDiscount) {
+	georgeCostWithDiscount = georgePaid - (georgePaid * discount);
 }	else {
-	 console.log("Ryan did not reach the discount, he spent" + georgePaid + " he was 21 dollars short");
+	georgeCostWithDiscount = georgePaid;
 }
+console.log('George: ' + georgePaid + ', ' + georgeCostWithDiscount);
+
 
 
 var flipACoin = Math.floor(Math.random() * 2)
 
-if (flipACoin = 1) {
-	console.log('Buy a house');
-}	else {
-	console.log('Buy a Car');
-}
-
+console.log((flipACoin) ? "Buy A Car" : 'Buy A House');
