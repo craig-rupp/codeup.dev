@@ -6,32 +6,29 @@
 		<body>
 			<script>
 
-				var conevar allCones = Math.floor(Math.random() * 50) + 50;
+			var allCones = Math.floor(Math.random() * 50) + 50;
+			var cones;
+			var remaining = allCones;
+			var msg;
 
-				var cones;
-				var remaining = allCones
-				var response;
-				do{
-					cones = Math.floor(Math.random() * 5) + 1;
-					remaining = remaining - cones;
-					response = cones + ' cones sold...';
+			do {
+				cones = Math.floor(Math.random() * 5) + 1;
+				remaining -= cones;
+				msg = cones + ' cones sold..';
+				if (remaining < 0) {
+					msg = 'Cannot sell you ' + cones + ' I only have ' + (remaining + cones);
+				} if (remaining == 0) {
+					msg = 'Yay I sold all my cones!';
+				}
+				console.log(msg);
 
-					if (remaining < 0) {
-						response = 'Sorry, Cannot sell you ' + 
-						cones + ' cones I only have ' + (remaining + cones); 
-					};
-					if (remaining ==0) {
-						response = 'Hey, I sold all of my Cones!';
-					};
-					console.log(response)
-				} while (remaining > 0);
+			}	while (remaining > 0);
 
-				var numero = 2;
-
-				do {	
-					console.log(numero);
-					numero = numero * 2;
-				} while (numero <= 65536);
+			var i =2;
+			do {
+				console.log(i);
+				i = i * 2;
+			} while (i <= 65536);			
 
 			</script>
 		</body>
