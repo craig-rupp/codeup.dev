@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>Morning Exercise 6/3</title>
+		</head>
+		<body>
+			<script>
+			var luckyNumber;
+			var i = 1;
+			var zero = 0;
+			var one = 0;
+			var two = 0;
+			var three = 0;
+			var four = 0;
+			var five = 0;
+
+				for (var i = 1; i <=100; i++ ){
+				luckyNumber = Math.floor(Math.random()* 6);
+				if (luckyNumber == 0) {
+					zero++;
+				} 
+				if (luckyNumber == 1) {
+					one++;
+				}
+				if (luckyNumber == 2) {
+					two++;
+				}
+				if (luckyNumber == 3) {
+					three++;
+				}
+				if (luckyNumber == 4) {
+					four++;
+				}
+				if (luckyNumber == 5) {
+					five++; 
+				}
+			}
+				console.log('0 appeared ' + zero + ' times');
+				console.log('1 appeared ' + one + ' times');
+				console.log('2 appeared ' + two + ' times');
+				console.log('3 appeared ' + three + ' times');
+				console.log('4 appeared ' + four + ' times');
+				console.log('5 appeared ' + five + ' times');
+
+			</script>
+		</body>
+	</html>

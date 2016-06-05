@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title>For Loop JS</title>
+		</head>
+		<body>
+			<script>
+
+			var primaryNumber = Math.floor(Math.random() * 10) + 1;
+			var solution;
+
+			for (var i = 1; i <=10; i++){
+
+				solution = primaryNumber * i;
+				console.log(primaryNumber + 'X' + i + '=' + solution);
+			};
+
+			function doPrimary (random) {
+				solution = primaryNumber * i;
+				console.log(primaryNumber + 'x' + i + '=' + solution);
+
+			}
+			for (var i = 1; i <=10; i++){
+				var primaryNumber = Math.floor(Math.random() * 10) + 1;
+				var solution;
+				doPrimary(random);
+			};
+
+
+
+
+			for (var i = 1; i <=10; i++) {
+			var randomNumber = Math.floor(Math.random() * 180) + 20;
+				if (randomNumber % 2 ==0){
+					console.log(randomNumber + ' was even');
+				}
+				if (randomNumber % 2 !==0) {
+					console.log(randomNumber + ' was odd');
+				}
+			};
+
+			for (var i = 100; i > 0; i-=5){
+				console.log(i);
+			};
+
+
+
+
+			function wasOdd(number){
+
+				randomNumberAgain % 2 == 0 ? console.log(number + ' was even') :
+				console.log(number + ' was odd');
+
+			} 
+			for (var i = 1; i <=10; i++) {
+				var randomNumberAgain = Math.floor(Math.random() * 180) + 20;
+				wasOdd(randomNumberAgain);
+			};
+
+
+
+
+			</script>
+		</body>
+	</html>
