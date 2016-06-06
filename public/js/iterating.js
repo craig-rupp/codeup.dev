@@ -10,7 +10,7 @@
 	}
 
 	names.forEach(function(element, index, array){
-		console.log('The name at index ' + index + ' is: ' + element);
+		console.table('The name at index ' + index + ' is: ' + element);
 	});
 
 })();
