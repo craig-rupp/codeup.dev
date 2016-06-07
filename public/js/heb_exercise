@@ -1,0 +1,33 @@
+'use strict';
+
+console.log('heb question');
+var cameronCost = 180;
+var ryanCost = 250;
+var georgeCost = 320;
+
+var discountCostRequirement = 200;
+var discount = 0.35;
+
+var cameronCostWithDiscount;
+if (cameronCost > discountCostRequirement) {
+    cameronCostWithDiscount = cameronCost - (cameronCost * discount);
+} else {
+    cameronCostWithDiscount = cameronCost;
+}
+console.log('Cameron: ' + cameronCost + ', ' + cameronCostWithDiscount);
+
+var ryanCostWithDiscount;
+if (ryanCost > discountCostRequirement) {
+    ryanCostWithDiscount = ryanCost - (ryanCost * discount);
+} else {
+    ryanCostWithDiscount = ryanCost;
+}
+console.log('Ryan: ' + ryanCost + ', ' + ryanCostWithDiscount);
+
+var georgeCostWithDiscount;
+if (georgeCost > discountCostRequirement) {
+    georgeCostWithDiscount = georgeCost - (georgeCost * discount);
+} else {
+    georgeCostWithDiscount = georgeCost;
+}
+console.log('Ryan: ' + georgeCost + ', ' + georgeCostWithDiscount);
