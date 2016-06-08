@@ -75,6 +75,8 @@ confirmDiscount();
 var moreCustomers = confirm('Is there another customer?')
 } while (moreCustomers)
 
+prompt(customer.name);
+
 
 
 
