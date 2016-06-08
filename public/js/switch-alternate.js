@@ -1,18 +1,25 @@
 'use strict';
 
 var discountArray = [0, .15, .25, .35, .5, 1];
-discountArray.forEach(function(element,index){
-    console.table('The discount at ' + index + ' is ' + element);
-});
+// discountArray.forEach(function(element,index){
+//     console.table('The discount at ' + index + ' is ' + element);
+// });
 
+var i;
 var discountValue;
 var cost = 60;
-var luckyNumber = Math.floor(Math.random()*6);
-function discountAmount(){
-discountValue = cost - (discountArray[1] * cost);
+// var luckyNumber = Math.floor(Math.random()*6);
+function discountAmount(retailPrice){
+    var discount = discountArray[Math.floor(Math.random()*discountArray.length)]
+    //console.log(discount);
+    return retailPrice - (discount * retailPrice);
+
+    // for (i - cost; i <= discountArray.length; i++){
+
+    // }
 }
-discountAmount();
-console.log(discountValue);
+console.log(discountAmount(100));
+// console.log(discountValue);
 
 
 

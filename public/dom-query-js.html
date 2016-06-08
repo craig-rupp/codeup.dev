@@ -6,6 +6,11 @@
 </head>
 <body>
 
+<button id="btn1">Hola</button></hr>
+<button id="btn2">You</button></hr>
+<button id="btn3">Saucy</button></hr>
+<button id="btn4">Minx</button></hr>
+
 <h1 id="main-header">Hello World!</h1>
 <ul>
 	<li data-dbid="1">Item 1</li>
@@ -25,42 +30,82 @@
 	culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+
+
+
 <script>
 	(function() {
 		"use strict";
-		// TODO: Uncomment next line and get the main header element by id
 		var mainHeader = document.getElementById("main-header");
-		console.log(mainHeader);
+		var subHeader = document.getElementById("sub-header");
+		var listItems = document.getElementsByTagName('li');
+		var subParagraphs = document.getElementsByClassName ("sub-paragraph");
 
-		// TODO: Set inner html of mainHeader to "JavaScript is Cool"
+
+		var listener1 = function(event){
 		mainHeader.innerHTML = "JavaScript is Cool!";
+		}
+		document.getElementById("btn1").addEventListener('click', listener1, true);
+
+		// var subHeader = document.getElementById("subHeader");
+		var listener2 = function(event){
+			subHeader.style.color = "blue";
+		}
+		document.getElementById("btn2").addEventListener('click', listener2, true);
+
+		var listener3 = function(event){
+			for (var i = 0; i < listItems.length; i++){
+				if (i % 2 == 0){
+					listItems[i].style.color = 'grey';
+				} if (listItems[i].getAttribute('data-dbid') == 1){
+					listItems[i].style.color = 'blue';
+				}
+			}
+		}
+		document.getElementById("btn3").addEventListener('click', listener3, true);
+
+		var listener4 = function(event){
+			subParagraphs[0].innerText = "Mission Accomplished!";
+		}
+		document.getElementById("btn4").addEventListener('click', listener4, true);
+
+
+
+		// var btn1 = document.getElementById("btn1");
+
+		// // TODO: Uncomment next line and get the main header element by id
+		// var mainHeader = document.getElementById("main-header");
+		// console.log(mainHeader);
+
+		// // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+		// mainHeader.innerHTML = "JavaScript is Cool!";
 
 		// TODO: Uncomment the next line and get the sub header element by id
-		var subHeader = document.getElementById("sub-header");
+		// var subHeader = document.getElementById("sub-header");
 
 		// TODO: Set the text color of subHeader to blue
-		subHeader.style.color = "blue";
+		// subHeader.style.color = "blue";
 
 		// TODO: Uncomment the next line and get all list items
-		var listItems = document.getElementsByTagName('li');
-		console.log(listItems[0]);
-		for (var i = 0; i < listItems.length; i++){
-		// TODO: Set text color on every other list item to grey
-		if (i % 2 == 0) {
-			listItems[i].style.color = "grey";
-		// TODO: Set text color of li with dbid = 1 to blue
-		} if (listItems[i].getAttribute('data-dbid') == 1) {
+		// var listItems = document.getElementsByTagName('li');
+		// console.log(listItems[0]);
+		// for (var i = 0; i < listItems.length; i++){
+		// // TODO: Set text color on every other list item to grey
+		// if (i % 2 == 0) {
+		// 	listItems[i].style.color = "grey";
+		// // TODO: Set text color of li with dbid = 1 to blue
+		// } if (listItems[i].getAttribute('data-dbid') == 1) {
 
-			listItems[i].style.color = 'blue';
-		}
-		}
+		// 	listItems[i].style.color = 'blue';
+		// }
+		// }
 			
 
-		// TODO: Uncomment the next line and get all elements with class name sub-paragraph
-		var subParagraphs = document.getElementsByClassName
-		("sub-paragraph");
-		// TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-		subParagraphs[0].innerText = "Mission Accomplished!";
+		// // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+		// var subParagraphs = document.getElementsByClassName
+		// ("sub-paragraph");
+		// // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+		// subParagraphs[0].innerText = "Mission Accomplished!";
 
 	})();
 </script>
