@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Programming books books</title>
+</head>
+<body>
+	<h1>See your friend's books</h1>
+	<form>
+		<label for="friend">Choose</label>
+		<select id="friend" name="friend">
+			<option value="">Friend</option>
+		</select>
+		<input type="button" id="bookSelect" value="Search">
+	</form>
+	<div id="books"></div>
+	<script>
+		var friends = [
+			{name: 'Oliver', books: ['Ansible for DevOps', 'Servers for hackers']},
+			{name: 'Barry', books: ['Working effectively with unit tests', '50 quick ideas for your tests']},
+			{name: 'Jessica', books: ['Understanding the 4 rules of simple design', 'Principles of package design']},
+			{name: 'Clark', books: ['Selling test driven projects']}
+		];
+		var friend = document.getElementById('friend');
+		var options = '';
+
+		friends.forEach(function (friend, i) {
+				options += '<option value="' + i + '">' + friend.name + '</option>' ;
+			});      
+
+		friend.innerHTML = options;
+
+		var bookSelect = document.getElementById('bookSelect')
+		var showBooks = function(event){
+			var books = document.getElementById('books');
+			var selectedFriend = friend.selectedIndex[];
+			bookSelect.innerHTML = friends[selectedFriend].books.join(' , ')
+		}
+
+		// var displayBooks = function(event){
+		// 	books.innerHTML =  
+		// 	document.getElementById("bookSelect").addEventListener('click', displayBooks, true);         			
+		// }
+
+		// var books = document.get
+
+		// var listener = function(event){
+
+		// var displayBooks = function(event) {
+		// }
+		// document.getElementsByTagName('select').addEventListener('click', listener, true);
+		// console.log()
+
+
+	</script>
+</body>
+</html>

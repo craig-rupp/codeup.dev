@@ -38,6 +38,7 @@ var discountCostRequirement = 200;
 var discount = 0.65;
 var moreProducts;
 var costOfProduct;
+var shortOfDiscount;
 
 do {  
 var customer = {
@@ -75,7 +76,6 @@ confirmDiscount();
 var moreCustomers = confirm('Is there another customer?')
 } while (moreCustomers)
 
-prompt(customer.name);
 
 
 

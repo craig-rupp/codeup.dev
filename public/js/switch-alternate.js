@@ -10,13 +10,9 @@ var discountValue;
 var cost = 60;
 // var luckyNumber = Math.floor(Math.random()*6);
 function discountAmount(retailPrice){
-    var discount = discountArray[Math.floor(Math.random()*discountArray.length)]
-    //console.log(discount);
+    var randomNumber = Math.floor(Math.random()*discountArray.length);
+    var discount = discountArray[randomNumber]
     return retailPrice - (discount * retailPrice);
-
-    // for (i - cost; i <= discountArray.length; i++){
-
-    // }
 }
 console.log(discountAmount(100));
 // console.log(discountValue);
