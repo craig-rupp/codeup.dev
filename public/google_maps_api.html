@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	<!-- div to hold map -->
+	<div id="map-canvas" style="height: 650px; width: 800px;"></div><br>
+	<button id="default-zoom">Default Zoom</button>
+
+	<!-- Load the Google Maps API [DON'T FORGET TO USE A KEY] -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYV7MmvXnEHWXTBYCBoDKZk9c5TWuhKvw"></script>
+
+	<!-- Script to show address on map -->
+	<script type="text/javascript">
+	var locations = [
+		{place : 'Ivar\'s Fish Bar', lat: 47.604046, lng: -122.339137, content:'<a target="_blank" href="http://www.ivars.com/locations/acres-of-clams">Ivar\'s Fish Bar</a><h4>Favorite Dishes</h4><ul><li>Clam Chowder</li><li>Dungeness Crab and Goat Cheese Dip</li><li>Acres of Clams</li></ul>', icon: 'images/ivars_logo.png', zoom: 18},
+		{place : 'Rocky Rococo Pizza & Pasta', lat: 47.659325, lng: -117.420512, content:'<a target="_blank" href="http://www.rockyrococo.com/rockys-roots.php">Rocky Rococo Pizza & Pasta</a><h4>Favorite Dishes</h4><ul><li>Breadsticks</li><li>Square Pepperoni Pizza</li><li>House Salad</li></ul>', icon: 'images/rocky_rococo.jpg', zoom: 18},
+		{place : 'Meat & Bread', lat: 49.282564, lng: -123.109330, content:'<a target="_blank" href="http://meatandbread.ca/pender-street/">Meat & Bread</a><p>Daily specials featuring assorted meats and breads. It\'s Delicious'
+		, icon: 'images/meat_bread.jpg', zoom: 18},
+		{place : 'Pine State Biscuits', lat: 45.558883, lng: -122.642727,
+		content: '<a target="_blank" href="http://www.pinestatebiscuits.com/menu/">Pine State Biscuits</a><h4>Favorite Dishes</h4><ul><li>The Reggie - Fried chicken, bacon & cheese</li><li>Double Down - Biscuits and gravy topped with two over easy eggs</li><li>The Wedgie - Fried chicken, fried green tomato, a wedge iceberge lettuce and ranch dressing</li></ul>', icon: 'images/pine_state.png', zoom: 18}
+	];
+
+	var map = new google.maps.Map(document.getElementById("map-canvas"), {
+		zoom: 6,
+		center: new google.maps.LatLng(46.804995,-120.146484),
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	});
+
+	var marker, i;
+	var restaurantInfo = new google.maps.InfoWindow();
+
+	for (i = 0; i < locations.length; i++){
+		marker = new google.maps.Marker({
+			position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+			map: map,
+			icon: locations[i].icon,
+			animation: google.maps.Animation.DROP
+		});
+
+		google.maps.event.addListener(marker, 'click', (function(marker, i){
+			return function(){
+				restaurantInfo.setContent(locations[i].content);
+				restaurantInfo.open(map, marker);
+				map.setZoom(locations[i].zoom);
+				map.setCenter(marker.getPosition());
+			}
+		})(marker, i));
+	}
+	var defaultZoomButton = document.getElementById("default-zoom")
+
+	function defaultZoom(){
+		map.setZoom(6);
+		map.setCenter(google.maps.LatLng(46.804995,-120.146484));
+		map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+		restaurantInfo.close()
+	}
+
+
+	defaultZoomButton.addEventListener('click', defaultZoom);
+
+	</script>
+</body>
+</html>

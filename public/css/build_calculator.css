@@ -1,21 +1,61 @@
 h1{
 	color : black;
+	text-align: center;
 }
-.Output_Fields {
-	width : 15px;
+.Calculator-style{
+	text-align: center;
+	border: 3px solid black;
+	margin: 0 auto;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: lightblue;
+	width: 55%;
+	font-size: 1.3em;
 }
-.buttons{
-	font-size: 15px;
+input {
+	width: 18%;
+	padding: 8px 8px;
+	text-align: center;
+	border-color: black;
 }
-.top-row {
-	margin-left: 95px;
+#center-output{
+	width: 8%;
 }
-.second-row {
-	margin-left: 95px;
+.Calculator-style .number {
+	background-color: lightgrey;
+	padding: 10px;
+	width: 13%;
+	font-size: 90%;
+	margin-left: 18px;
+	border-color : black;
 }
-.third-row {
-	margin-left: 95px;
+.Calculator-style .operator {
+	background-color: orange;
+	padding: 10px;
+	width: 13%;
+	font-size: 90%;
+	margin-left: 18px;
+	border-color : black;
 }
-.fourth-row {
-	margin-left: 95px;
+.Calculator-style .buttons {
+	background-color: lightgrey;
+	padding: 10px;
+	width: 13%;
+	font-size: 90%;
+	margin-left: 18px;
+	border-color : black;
 }
+#back_button {
+	font-size: .9em;
+	background-color: red;
+	font-weight: bold;
+	padding: 10px;
+}
+#square_root{
+	background-color: orange;
+}
+#power_raised{
+	position: relative;
+	background-color: orange;
+}
+
