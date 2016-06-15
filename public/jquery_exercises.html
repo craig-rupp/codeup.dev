@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Example jQuery Page</title>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js">
+    </script>
+    <script>
+        "use strict";
+
+        // $(document).ready(function() {
+        //     var contents = $('#tmnt').html();
+        //     alert(contents);
+        // });
+        // $(document).ready(function(){
+        // 	var turtles = $('#names1').html();
+        //     alert(turtles);
+        // });
+		
+		$(document).ready(function(){
+			$('.kowabunga').css('border', '1px solid red');
+			$('li').css('border', 'none');
+		});
+		// $(document).ready(function(){
+		// 	$('li').removeClass("kowabunga");
+		// });
+		
+    </script>
+</head>
+<body>
+    <h1 id="tmnt">Hello Turtle Supporters</h1>
+    <div id="turtles">
+    	<h1 class="kowabunga">Do you have a favorite Turtle?</h1>
+    	<p class="Splinter">Here is a list of dem' Turtles</p>
+    </div>
+    <div class="kowabunga">
+    	<ul>
+    		<li id="names1">Michaelangelo</li>
+    		<li id="names2">Raphael</li>
+    		<li id="names3">Donatello</li>
+    		<li id="names4">Leonardo</li>
+    	</ul>
+    </div><br>
+    <div id="Villains">
+    	<ol>
+    		<li class="kowabunga">Shredder</li>
+    		<li class="kowabunga">Krang</li>
+    		<li class="kowabunga">Slash</li>
+		</ol>    		
+</body>
+</html>
