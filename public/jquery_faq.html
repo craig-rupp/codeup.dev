@@ -11,7 +11,7 @@
 </head>
 <body>
 	<h1 id="parks">National Parks FAQ's</h1>
-
+<div>
 	<dl>
 	  <dt>1. Bears</dt>
 	  <dd>They might eat you, if you look delicious</dd>
@@ -35,7 +35,31 @@
 	  <dd>They do not extist</dd>
 	</dl>
 <a href="#" id="toggle">Click To See The Rules</a>
-</div>    		
+</div> 
+<div>
+	<h3>Big Bend Park</h3>
+	<ul id="lists">
+		<li>Larger Than the state of Rhode Island</li>
+		<li>Entire Mounain Range Within it's park's borders</li>
+		<li>Named after the "big bend" in the Rio Grande in West Texas</li>
+		<li>Best place to see the stars in all of Texas</li>
+	</ul>
+	<h3>North Cascades National Park</h3>
+	<ul id="lists">
+		<li>Commonly nicknamed as the "American Alps"</li>
+		<li>More than 1,630 Vascular Plant Species</li>
+		<li>Mountains were named by early white explorers (Mt. Challenger, Mt. Fury, Mt. Torment and Desolation Peak</li>
+		<li>I have skied and visited this Mt. Range park</li>
+	</ul id="lists">
+	<h3>Great Smoky Mountains National Park</h3>
+	<ul>
+		<li>Rocks have dated some mountains to be as old as 200-300 million years</li>
+		<li>Over 800 Miles of Hiking</li>
+		<li>Temperature Never Rises abouve 80 degrees</li>
+		<li>70 mile stretch of the 2,178 mile Applachian Trails winds through the Park</li>
+	</ul>
+</div>
+
 <script src="http://code.jquery.com/jquery-1.11.0.min.js">
 </script>
 <script>
@@ -47,9 +71,26 @@
 		$('dd').toggleClass('invisible')
 	})
 	
-	// $('dd').click(function(event){
-	// 	$('.')
+	$('ul').each(function(index,element){
+		$(element).children().first().css('font-weight', 'bold');
+	})
+
+	$('li').click(function(){
+		$(this).parent().addClass('invisible');
+	})
+
+	$('ul').each(function(index,element){
+		$(element).children().last().css('color', 'lightblue');
+	})
+
+	// $('ul').each(function(index,element){
+	// 	$(element).children().[2].css('color','green');
 	// })
+
+	// $('#lists').children(1).css('font-weight', 'bold');
+	
+
+
 </script>
 </body>
 </html>

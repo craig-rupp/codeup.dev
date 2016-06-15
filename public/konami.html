@@ -6,9 +6,6 @@
 <body>
 	<div id ="Konami">
     <h1>Konami Code</h1>
-    <audio id="sounds" controls="controls">
-    	<source id="fight1" src="url(MK.mp3)"></source>
-    </audio>
 
     <p>Enter the Konami Code for <span>30 LIVES</span> Don't Forget to press Enter at the end of your Code! </p>
 	</div>
@@ -26,6 +23,7 @@
         var konamiCodeAchieved = [38,38,40,40,37,39,37,39,66,65,13];
 
         var i = 0;
+        var audio = new Audio("MK.mp3");
 
         var handler = function (event){
         	if (event.keyCode == konamiCodeAchieved[i]) {
@@ -35,7 +33,7 @@
         		alert('Try Again, the konami Code Sequence was Incorrect');
         	} if (i == (konamiCodeAchieved.length)){
         		$('body').css('background-image', 'url(MK.png)').css('background-size', '100%');
-        		$('fight1').css('.playSound','url(MK.mp3)');
+        		audio.play();
         		alert('Konami Code Unlocked!');
         	}
         }
