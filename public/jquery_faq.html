@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery FAQ</title>
+	<style>
+		.invisible{
+			display: none;
+		}
+		
+	</style>
+</head>
+<body>
+	<h1 id="parks">National Parks FAQ's</h1>
+
+	<dl>
+	  <dt>1. Bears</dt>
+	  <dd>They might eat you, if you look delicious</dd>
+	  <dt>2. Poison Ivy</dt>
+	  <dd>You'll probably end up getting it</dd>
+	  <dt>3. Restrooms</dt>
+	  <dd>Don't use the park, there are special buildings</dd>
+	  <dt>4. Are Pets Allowed?</dt>
+	  <dd>NO, they attract bears</dd>
+	  <dt>5.What does your 'environmental code' entail?
+	  <dd>Reduce Waste, don't be an ass</dd>
+	  <dt>6. Can I collect firewood</dt>
+	  <dd>We don't recommend it, it show's you are ready for a higher form of war</dd>
+	  <dt>7. Are there Wolves? Are they letal?</dt>
+	  <dd>They've very sneaky and may come to get you</dd>
+	  <dt>8. Have Wolves killed surrounding livestock</dt>
+	  <dd>Yes, and they are starting to acquire a taste for humans</dd>
+	  <dt>9. I found a strange archaelogist, who is he?</dt>
+	  <dd>That is Darius, he is paid to provide strange facts</dd>
+	  <dt>10. Where can I find further information about Park de Tomas</dt>
+	  <dd>They do not extist</dd>
+	</dl>
+<a href="#" id="toggle">Click To See The Rules</a>
+</div>    		
+<script src="http://code.jquery.com/jquery-1.11.0.min.js">
+</script>
+<script>
+
+	// $('dd').addClass('invisible');
+
+	$('dd').addClass('invisible');
+	$('#toggle').click(function(event){
+		$('dd').toggleClass('invisible')
+	})
+	
+	// $('dd').click(function(event){
+	// 	$('.')
+	// })
+</script>
+</body>
+</html>

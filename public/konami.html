@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+	<div id ="Konami">
+    <h1>Konami Code</h1>
+    <audio id="sounds" controls="controls">
+    	<source id="fight1" src="url(MK.mp3)"></source>
+    </audio>
+
+    <p>Enter the Konami Code for <span>30 LIVES</span> Don't Forget to press Enter at the end of your Code! </p>
+	</div>
+   
+    <!-- <form>
+        <input type="text" id="textfield" name="textfield" placeholder="Type Here"/>
+    </form> -->
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script>
+        "use strict";
+
+        // var konamiCodeAchieved = $('#textfield'.keyCode)[
+
+        var konamiCodeAchieved = [38,38,40,40,37,39,37,39,66,65,13];
+
+        var i = 0;
+
+        var handler = function (event){
+        	if (event.keyCode == konamiCodeAchieved[i]) {
+        		i++;
+        	} else{
+        		i = 0;
+        		alert('Try Again, the konami Code Sequence was Incorrect');
+        	} if (i == (konamiCodeAchieved.length)){
+        		$('body').css('background-image', 'url(MK.png)').css('background-size', '100%');
+        		$('fight1').css('.playSound','url(MK.mp3)');
+        		alert('Konami Code Unlocked!');
+        	}
+        }
+        $(document).keyup(handler);
+       
+
+    </script>
+</body>
+</html>
