@@ -33,8 +33,10 @@
         		alert('Try Again, the konami Code Sequence was Incorrect');
         	} if (i == (konamiCodeAchieved.length)){
         		$('body').css('background-image', 'url(MK.png)').css('background-size', '100%');
-        		audio.play();
         		alert('Konami Code Unlocked!');
+                $('h1, p').css('display', 'none');
+                audio.play();
+
         	}
         }
         $(document).keyup(handler);
