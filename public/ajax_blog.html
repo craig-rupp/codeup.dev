@@ -8,40 +8,52 @@
 </head>
 <body>
 	<style>
+		*{
+			background-color: #563d7c;
+			color: white;
+		}
+		h1{
+			font-weight: bold;
+			text-align: center;
+		}
+
+		#thead{
+			background-color: black;
+		}
 
 	</style>
-
+<div id="posts">
 <h1>Blog Entries</h1>
 <table id="products" class="table">
 	<thead class="thead-inverse">
 		<tr>
-			<th>Title</th>
-			<th>Content</th>
-			<th>Categories</th>
-			<th>Date</th>
+			<th id="thead">Title</th>
+			<th id="thead">Date</th>
+			<th id="thead">Categories</th>
+			<th id="thead">Content</th>
 		</tr>
 	</thead>
-	<tbody id="blogBody"></tbody>
+	<tbody id="blogEntries"></tbody>
 </table><br>
-
-<!-- 	<button id="refresh" class="btn btn-success">Load Inventory</button>
- -->
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script>
 (function() {
 	"use strict";
-
-		$.get("data/blog.json").done(function(blog){
-			var contents = '';
-			blog.forEach(function (posting){
-	                contents += '<tr><td>' + posting.title + '</td><td>' + posting.content + '</td><td>' + posting.categories.join(', ') + '</td><td>' + posting.date+ '</td></tr>';
-	            });
-			$('#blogBody').html(contents)
-			// console.log(contents);
-		})
+	$.ajax("data/blog.json").done(function(blog){
+		alert("AJAX call completed successfully!");
 	});
+	$.get("data/blog.json").done(function(blog){
+		var contents = '';
+		blog.forEach(function (posts){
+			contents += '<tr><td>' + posts.title + '</td><td>' + posts.date + '</td><td>' + posts.categories.join(', ') + '</td><td>' + posts.content + '</td></tr>';
+	            });
+		$('#blogEntries').html(contents)
+	})
+})();
+	
 </script>
 
 </body>
