@@ -3,9 +3,15 @@
 <head>
 	<title>jQuery FAQ</title>
 	<style>
-		.invisible{
+		#h3{
+			color: blue;
+		}
+		.invisible, #lists{
 			display: none;
 		}
+	/*	.visible{
+			display: ;
+		}*/
 		
 	</style>
 </head>
@@ -14,45 +20,45 @@
 <div>
 	<dl>
 	  <dt>1. Bears</dt>
-	  <dd>They might eat you, if you look delicious</dd>
+	  <dd class="invisible">They might eat you, if you look delicious</dd>
 	  <dt>2. Poison Ivy</dt>
-	  <dd>You'll probably end up getting it</dd>
+	  <dd class="invisible">You'll probably end up getting it</dd>
 	  <dt>3. Restrooms</dt>
-	  <dd>Don't use the park, there are special buildings</dd>
+	  <dd class="invisible">Don't use the park, there are special buildings</dd>
 	  <dt>4. Are Pets Allowed?</dt>
-	  <dd>NO, they attract bears</dd>
+	  <dd class="invisible">NO, they attract bears</dd>
 	  <dt>5.What does your 'environmental code' entail?
-	  <dd>Reduce Waste, don't be an ass</dd>
+	  <dd class="invisible">Reduce Waste, don't be an ass</dd>
 	  <dt>6. Can I collect firewood</dt>
-	  <dd>We don't recommend it, it show's you are ready for a higher form of war</dd>
+	  <dd class="invisible">We don't recommend it, it show's you are ready for a higher form of war</dd>
 	  <dt>7. Are there Wolves? Are they letal?</dt>
-	  <dd>They've very sneaky and may come to get you</dd>
+	  <dd class="invisible">They've very sneaky and may come to get you</dd>
 	  <dt>8. Have Wolves killed surrounding livestock</dt>
-	  <dd>Yes, and they are starting to acquire a taste for humans</dd>
+	  <dd class="invisible">Yes, and they are starting to acquire a taste for humans</dd>
 	  <dt>9. I found a strange archaelogist, who is he?</dt>
-	  <dd>That is Darius, he is paid to provide strange facts</dd>
+	  <dd class="invisible">That is Darius, he is paid to provide strange facts</dd>
 	  <dt>10. Where can I find further information about Park de Tomas</dt>
-	  <dd>They do not extist</dd>
+	  <dd class="invisible">They do not extist</dd>
 	</dl>
-<a href="#" id="toggle">Click To See The Rules</a>
+<a href="#" id="button">Click To See The Rules</a>
 </div> 
 <div>
-	<h3>Big Bend Park</h3>
+	<h3 id="h3">Big Bend Park</h3>
 	<ul id="lists">
 		<li>Larger Than the state of Rhode Island</li>
 		<li>Entire Mounain Range Within it's park's borders</li>
 		<li>Named after the "big bend" in the Rio Grande in West Texas</li>
 		<li>Best place to see the stars in all of Texas</li>
 	</ul>
-	<h3>North Cascades National Park</h3>
+	<h3 id="h3">North Cascades National Park</h3>
 	<ul id="lists">
 		<li>Commonly nicknamed as the "American Alps"</li>
 		<li>More than 1,630 Vascular Plant Species</li>
 		<li>Mountains were named by early white explorers (Mt. Challenger, Mt. Fury, Mt. Torment and Desolation Peak</li>
 		<li>I have skied and visited this Mt. Range park</li>
 	</ul id="lists">
-	<h3>Great Smoky Mountains National Park</h3>
-	<ul>
+	<h3 id="h3">Great Smoky Mountains National Park</h3>
+	<ul id="lists">
 		<li>Rocks have dated some mountains to be as old as 200-300 million years</li>
 		<li>Over 800 Miles of Hiking</li>
 		<li>Temperature Never Rises abouve 80 degrees</li>
@@ -64,7 +70,7 @@
 </script>
 <script>
 
-	// $('dd').addClass('invisible');
+	$('dd').addClass('invisible');
 
 	$('dd').addClass('invisible');
 	$('#toggle').click(function(event){
@@ -82,6 +88,26 @@
 	$('ul').each(function(index,element){
 		$(element).children().last().css('color', 'lightblue');
 	})
+
+	// $('.invisible').click(function(){
+	// 	$()
+	// })
+	$("#button").click(function(){
+		$('.invisible').fadeIn(1500);
+	})
+
+	$('li').click(function(){
+		$(this).parent().hide();
+	})
+
+	$('h3').click(function(){
+		$(this).children
+	})
+
+	// $('#h3').click(function(){
+	// 	$('#lists').fadeToggle().
+	// })
+
 
 	// $('ul').each(function(index,element){
 	// 	$(element).children().[2].css('color','green');

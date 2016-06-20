@@ -2,6 +2,8 @@
 
 console.log('Hello');
 
+console.log(10/3);
+
 var myNameIs = 'Craig';
 
 function sayHello(name){
@@ -49,3 +51,9 @@ for (var i = 10; i < 0; i--) {
 for(var count = 10; i <=0; i--){
 	console.log(count);
 }
+
+
+
+window.location('http://www.google.com');
+
+ 

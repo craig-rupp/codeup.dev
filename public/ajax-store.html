@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Store</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+	<style>
+
+	</style>
+
+<h1>My Tool Store</h1>
+
+<table id="products" class="table">
+	<thead class="thead-inverse">
+		<tr>
+			<th>Title</th>
+			<th>Quantity</th>
+			<th>Price</th>
+			<th>Categories</th>
+		</tr>
+	</thead>
+	<tbody id="insertProducts"></tbody>
+</table><br>
+
+	<button id="refresh" class="btn btn-success">Load Inventory</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+(function() {
+	"use strict";
+	// TODO: Create an ajax GET request for /data/inventory.json
+	$('#refresh').click(function(){
+		$.get("data/inventory.json").done(function(inventory){
+			var table = '';
+			inventory.forEach(function (product)  {
+	                table += '<tr><td>' + product.title + '</td><td>' + product.quantity + '</td><td>$' + product.price + '</td><td>' + product.categories.join(', ') + '</td></tr>';
+	            });
+			$('#insertProducts').html(table)
+		})
+	});
+})();
+</script>
+
+</body>
+</html>
