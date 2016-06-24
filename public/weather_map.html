@@ -42,7 +42,8 @@
 
 	</style>
 		<div class="container-fluid"><br>
-			<div class="city"><h2>Weather Application</h2></div><br>
+			<div class="city"><h2>Weather Application</h2><br>
+				<h3 id="instructions">Set your Weather by dragging the pin to your desired location</h3></div><br>
 				<div id="yourChosenCity"></div><br>
 				<div class="row"></div>	
 			<br>
@@ -91,7 +92,7 @@
 				}).done(function(data) {
 					console.log(data);
 					$('.row').html('');
-					$('#yourChosenCity').html(data.city.name);
+					$('#yourChosenCity').html('<h3>' + data.city.country + '</h3><h3>' + data.city.name + '</h3>');
 				data.list.forEach(function(day){
 					var stringOfContent = '';
 					stringOfContent += '<div class="col-xs-4">'
@@ -109,7 +110,9 @@
 			});
 		}
 		marker.addListener('dragend', function(event){
-				yourPosition = event.latLng; 
+				yourPosition = event.latLng;
+				console.log('#instructions'); 
+				$('#instructions').html('');
 				showMyWeather();
 				console.log(yourPosition);
 				
