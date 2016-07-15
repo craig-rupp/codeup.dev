@@ -9,6 +9,10 @@ function pageController(){
 		}
 		// $data = "hit";
 		return $data;
+
+		//$theCount = isset($_GET['theCount']) ? $_GET['theCount'] : 0;
+		//$paddle = isset$_GET['paddle'] ? $_GET['paddle'] : 'miss';
+		//if($paddle == 'hit') { $theCount + 1}
 	
 }
 extract(pageController());

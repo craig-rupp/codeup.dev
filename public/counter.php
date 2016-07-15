@@ -9,6 +9,8 @@ function pageController(){
 		}
 		// var_dump($data);
 		return $data;
+		//<form method="get" action="document name"
+		//<button type ="submit" name="counter" value="<?= $counter +1 (php close)">Up</button>
 	
 }
 extract(pageController());
@@ -25,3 +27,4 @@ extract(pageController());
 		<a href="?theCount=<?= $theCount -1 ?>">Down</a>
 	</body>
 	</html>
+

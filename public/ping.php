@@ -24,6 +24,6 @@ var_dump($_GET);
 		<h1>Ping</h1>
 		<h4>Count : <?= $theCount; ?></h4>
 		<a href="pong.php?hit&theCount=<?= $theCount +1 ?>">Hit</a><br><br>
-		<a href="?miss&theCount=<?= $theCount = 0 ?>">Miss</a>
+		<a href="pong.php?miss&theCount=<?= $theCount = 0 ?>">Miss</a>
 	</body>
 	</html>
