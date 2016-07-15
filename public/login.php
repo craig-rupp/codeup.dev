@@ -9,6 +9,7 @@ function pageController(){
 		} else{
 			$signIn = 'Sign In Failed';
 		}
+		
 	}
 	return ['signIn' => $signIn];
 }
@@ -18,6 +19,10 @@ extract(pageController());
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+
+
+</style>
     <title>POST Example</title>
 </head>
 <body>

@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+	body{
+		background-color: blue;
+	}
+	#KP{
+
+	}
+
+</style>
     <title>POST Example</title>
 </head>
 <body>
-	<h1 style="background-color:papayawhip;">AUTHORIZED</h1>
+	<h1 id="KP">AUTHORIZED</h1>
     <!-- <form method="POST">
         <label>Username</label>
         <input type="text" name="username"><br><br>
