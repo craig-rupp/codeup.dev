@@ -23,7 +23,7 @@ function pageController(){
     'Emotional',
     'Tender'];
 
-    $data['allRappers'] = $rappers;
+    // $data['allRappers'] = $rappers;
     $data['rappers'] = $rappers[array_rand($rappers, 1)];
     $data['adjectives'] = $adjectives[array_rand($adjectives, 1)];
     // var_dump($data);
