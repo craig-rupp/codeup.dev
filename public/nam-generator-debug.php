@@ -8,14 +8,9 @@ function pageController()
     $randomNoun = ['php', 'javascript', 'css', 'html', 'mysql'];
     shuffle($randomNoun);
     $data['randomNoun'] = array_shift($randomNoun);
-    // $data['randomAdjective']= $randomAdjective[array_shift(shuffle(['awesome', 'legendary', 'great', 'cool', 'amazing']))];
-    // $data['randomNoun'] = $randomNoun[array_shift(shuffle(['php', 'javascript', 'css', 'html', 'mysql']))];
     return $data;
 
-    // $randomAdjective='awesome';
 }
-// var_dump($randomNoun);
-// var_dump($randomAdjective);
 extract(pageController());
 ?>
 <!doctype html>
