@@ -1,11 +1,16 @@
 <?php
 function pageController(){
+session_start();
+if(isset($_SESSION['logged_in_user'])){
+	header('Location: authorized.php');
+	exit();
+}
 	$signIn = 'Sign In';
 	if(!empty($_POST)){
 		 if($_POST['username'] == 'guest' && $_POST['password'] == 'password') {
-			header('Location: authorized.php');
-			exit();
-			//send to authorized.php
+		 	$_SESSION['logged_in_user'] = session_id();
+		 	$_SESSION['username'] = $_POST['username'];
+		 	header('Location: authorized.php');
 		} else{
 			$signIn = 'Sign In Failed';
 		}
@@ -13,13 +18,13 @@ function pageController(){
 	}
 	return ['signIn' => $signIn];
 }
-// var_dump($_POST);
 extract(pageController());
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/style_login.css" media="screen" type="text/css" />
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" />
 <style>
 
@@ -28,10 +33,11 @@ extract(pageController());
 	<title>POST Example</title>
 </head>
 <body>
-<h1><?= $signIn; ?></h1>
- <div class="container">
-	<div id="login">
-		<form method="POST">
+	<html lang="en-US">
+	<h1><?= $signIn; ?></h1>
+	 <div class="container">
+		<div id="login">
+		<form method="POST" action="login.php">
 		<fieldset class="clearfix">
 			<p><span class="fontawesome-user"></span><input type="text" name="username" value="Username" onBlur="if(this.value == '') this.value = 'Username'" onFocus="if(this.value == 'Username') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Username" -->
 			<p><span class="fontawesome-lock"></span><input type="password" name="password"  value="Password" onBlur="if(this.value == '') this.value = 'Password'" onFocus="if(this.value == 'Password') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Password" -->

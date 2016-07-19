@@ -1,9 +1,24 @@
+<?php
+function pageController(){
+session_start();
+// var_dump($_SESSION);
+
+if(!isset($_SESSION['logged_in_user'])){
+    header('Location: login.php');
+    exit();
+} else{
+    return $_SESSION['username'];
+}
+    
+}
+$name = pageController();
+?>
 <!DOCTYPE html>
 <html>
 <head>
 <style>
 	body{
-		background-color: blue;
+		background-color: white;
 	}
 	#KP{
 
@@ -14,13 +29,8 @@
 </head>
 <body>
 	<h1 id="KP">AUTHORIZED</h1>
-    <!-- <form method="POST">
-        <label>Username</label>
-        <input type="text" name="username"><br><br>
-        <label>Password</label>
-        <input type="text" name="password"><br><br>
-        <input type="submit">
-    </form> -->
+    <p>Hello <?= $name; ?>!</p>
+    <a href="logout.php">LogOut</a>
 </body>
 </html>
 
