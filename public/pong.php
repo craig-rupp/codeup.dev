@@ -1,23 +1,12 @@
-
 <?php
+require_once 'functions.php';
 function pageController(){
 
-		if(isset($_GET['theCount'])){
-			$data['theCount'] = $_GET['theCount'];
-		} else{
-			$data['theCount'] = 0;
-		}
-		// $data = "hit";
-		return $data;
+	$theCount = inputHas('theCount') ? inputGet('theCount') : 0;
+		return ['theCount' => $theCount];
+ }
 
-		//$theCount = isset($_GET['theCount']) ? $_GET['theCount'] : 0;
-		//$paddle = isset$_GET['paddle'] ? $_GET['paddle'] : 'miss';
-		//if($paddle == 'hit') { $theCount + 1}
-	
-}
 extract(pageController());
-var_dump($_GET);
-
 ?>
 <!DOCTYPE html>
 	<html>
@@ -27,7 +16,7 @@ var_dump($_GET);
 	<body>
 		<h1>Pong</h1>
 		<h4>Count : <?= $theCount; ?></h4>
-		<a href="ping.php?hit&theCount=<?= $theCount +1 ?>">Hit</a><br><br>
-		<a href="ping.php?miss&theCount=<?= $theCount = 0 ?>">Miss</a>
+		<p><a href="ping.php?count=<?= $theCount + 1; ?>&data=hit">hit</a></p>
+  		<p><a href="ping.php?count=<?= $theCount; ?>&data=miss">miss</a></p>
 	</body>
 	</html>

@@ -1,25 +1,27 @@
 <?php
+require_once 'functions.php';
 function pageController(){
-session_start();
-if(isset($_SESSION['logged_in_user'])){
-	header('Location: authorized.php');
-	exit();
-}
-	$signIn = 'Sign In';
-	if(!empty($_POST)){
-		 if($_POST['username'] == 'guest' && $_POST['password'] == 'password') {
-		 	$_SESSION['logged_in_user'] = session_id();
-		 	$_SESSION['username'] = $_POST['username'];
-		 	header('Location: authorized.php');
-		} else{
-			$signIn = 'Sign In Failed';
-		}
-		
+	session_start();
+
+	if(isset($_SESSION['logged_in_user'])){
+		header('Location: authorized.php');
+		exit();
 	}
+	$signIn = 'Sign In';
+	//var_dump(inputGet('username'), inputGet('password'));
+	 if(inputGet('username') == 'guest' && inputGet('password') == 'password') {
+	 	$_SESSION['logged_in_user'] = inputGet('username');//still not quite sure about this line
+	 	header('Location: authorized.php');
+	 	exit;
+	} else{
+		$signIn = 'Sign In Failed';
+	}
+	//var_dump(inputGet('username'), inputGet('password'));
 	return ['signIn' => $signIn];
 }
 extract(pageController());
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
