@@ -7,8 +7,12 @@ require_once 'php/view.php';
     $data = [];
     $data['contacts'] = loadContacts();
 
-    if($_POST){
-        if(!empty($_POST['name']) && !empty($_POST['number'])) {
+    if(!empty($_POST)){
+        if(($_POST['number']) && isValidPhoneNumber($_POST['number']) == false){
+            echo"<script type='text/javascript'>alert('Please enter a phone number with 7 or 10 digits');</script>";
+            break;
+        }
+        if(($_POST['name']) && ($_POST['number'])) {
             addContact($data['contacts'], $_POST['name'], $_POST['number']);
             saveContacts($data['contacts']);
         }
