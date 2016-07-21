@@ -7,7 +7,7 @@ function pageController(){
 		$_SESSION['randNumber'] = mt_rand(1, 100);
 	}
 	if(isset($_POST['guess'])){
-	   $data[''] = $_POST['guess'];
+	   $data['message'] = $_POST['guess'];
 	   if($_POST['guess'] == $_SESSION['randNumber']){
 	   session_unset();
 	   session_destroy();
