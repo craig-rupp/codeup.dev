@@ -1,8 +1,8 @@
 <?php
-require_once 'functions.php';
+require_once '../../Input.php';
 function pageController(){
 
-	$theCount = inputHas('theCount') ? inputGet('theCount') : 0;
+	$theCount = Input::get('theCount', 0);// ? Input::has('theCount') : 0;
 		return ['theCount' => $theCount];
  }
 
@@ -16,7 +16,7 @@ extract(pageController());
 	<body>
 		<h1>Pong</h1>
 		<h4>Count : <?= $theCount; ?></h4>
-		<p><a href="ping.php?count=<?= $theCount + 1; ?>&data=hit">hit</a></p>
-  		<p><a href="ping.php?count=<?= $theCount; ?>&data=miss">miss</a></p>
+		<p><a href="ping.php?theCount=<?= $theCount + 1 ?>">hit</a></p>
+  		<p><a href="ping.php?theCount=<?= $theCount - $theCount ?>">miss</a></p>
 	</body>
 	</html>

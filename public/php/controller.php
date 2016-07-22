@@ -10,9 +10,8 @@ require_once 'php/view.php';
     if(!empty($_POST)){
         if(($_POST['number']) && isValidPhoneNumber($_POST['number']) == false){
             echo"<script type='text/javascript'>alert('Please enter a phone number with 7 or 10 digits');</script>";
-            break;
         }
-        if(($_POST['name']) && ($_POST['number'])) {
+        if(($_POST['name']) && isValidPhoneNumber(($_POST['number'])) !== false) {
             addContact($data['contacts'], $_POST['name'], $_POST['number']);
             saveContacts($data['contacts']);
         }

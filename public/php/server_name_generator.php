@@ -45,9 +45,6 @@ function pageController(){
     // $randomAdjectiveGenerator = randomAdjectiveElement($adjectives);
 }
 extract(pageController());
-// print_r($allRappers);
-// var_dump($data);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,11 +53,7 @@ extract(pageController());
 </head>
 <body>
     <h1>Hip Hop Moods</h1>
-    <ol>
-    <?php foreach ($allRappers as $rappers) { ?>
-        <li><?php echo $rappers; ?></li>
-    <?php } ?>
-    </ol>
+    
   <h3><?php echo $rappers . ' feeling kinda : ' . $adjectives . ' Today'; ?></h3>
 </body>
 </html>

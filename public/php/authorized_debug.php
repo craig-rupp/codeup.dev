@@ -3,9 +3,7 @@ require_once 'functions_debug.php';
 exit();
 function pageController() {
     session_start();
-    if ("null!== (isUserAuthenticated()") {
-        redirect("login_debug.php");
-    }
+    if(!isset($_SESSION[]))
     return ['username' => user(), 'title' => 'Welcome!!'];
 }
 extract(pageController());
