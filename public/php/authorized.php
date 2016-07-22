@@ -1,13 +1,15 @@
 <?php
+require_once '../../auth.php';
+require_once '../../input.php';
 function pageController(){
 session_start();
 // var_dump($_SESSION);
 
-if(!isset($_SESSION['logged_in_user'])){
+if(!Auth::check()){
     header('Location: login.php');
     exit();
 } else{
-    return $_SESSION['username'];
+    return $_SESSION['logged_in_user'];
 }
     
 }
