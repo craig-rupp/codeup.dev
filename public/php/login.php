@@ -1,16 +1,17 @@
 <?php
-require_once 'functions.php';
+require_once '../../auth.php';
+require_once '../../input.php';
 function pageController(){
 	session_start();
+	$signIn = 'Sign In';
 
-	if(isset($_SESSION['logged_in_user'])){
+	if(Input::has('logged_in_user')){
 		header('Location: authorized.php');
 		exit();
 	}
-	$signIn = 'Sign In';
 	//var_dump(inputGet('username'), inputGet('password'));
-	 if(inputGet('username') == 'guest' && inputGet('password') == 'password') {
-	 	$_SESSION['logged_in_user'] = inputGet('username');//still not quite sure about this line
+	 if(Auth::attempt(Input::get('username'), Input::get('password'))) {
+	 	$_SESSION['logged_in_user'] = Input::('username');
 	 	header('Location: authorized.php');
 	 	exit;
 	} else{
@@ -26,7 +27,7 @@ extract(pageController());
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/style_login.css" media="screen" type="text/css" />
+<link rel="stylesheet" href="../css/style_login.css" media="screen" type="text/css" />
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" />
 <style>
 
