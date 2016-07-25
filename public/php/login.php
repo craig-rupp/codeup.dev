@@ -9,15 +9,13 @@ function pageController(){
 		header('Location: authorized.php');
 		exit();
 	}
-	//var_dump(inputGet('username'), inputGet('password'));
-	 if(Auth::attempt(Input::get('username'), Input::get('password'))) {
-	 	$_SESSION['logged_in_user'] = Input::('username');
+	if(Auth::attempt(Input::get('username'), Input::get('password'))) {
+	 	$_SESSION['logged_in_user'] = Input::has('username');
 	 	header('Location: authorized.php');
-	 	exit;
+	 	exit();
 	} else{
 		$signIn = 'Sign In Failed';
 	}
-	//var_dump(inputGet('username'), inputGet('password'));
 	return ['signIn' => $signIn];
 }
 extract(pageController());
