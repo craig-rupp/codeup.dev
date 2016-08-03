@@ -2,7 +2,7 @@
 
 // require_once 'pdo_test.php';	
 require_once 'db_connect.php';
-// require_once 'park_migration.php';
+require_once 'park_migration.php';
 
 $query = 'TRUNCATE national_parks';
 $dbc->exec($query);
@@ -25,7 +25,7 @@ foreach($parks as $park){
 }
 $query = rtrim($query, ",");
 $query .= ";";
-var_dump($query);
+// var_dump($query);
 file_put_contents('query-strng.csv', $query);
 $dbc->exec($query);
 // var_dump($query);
