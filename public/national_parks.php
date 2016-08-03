@@ -14,7 +14,7 @@ function getDemParks($dbc){
     $maxCount = $parkTotal/4;
     $maxCount = ceil($maxCount);
  
-	$stmt = $dbc->query("SELECT * FROM national_parks LIMIT 4 offset {$offset}");
+	$stmt = $dbc->query("SELECT * FROM national_parks ORDER BY date_established DESC LIMIT 4 offset {$offset}");
 	$parks = [];
 	while($park = $stmt->fetch(PDO::FETCH_ASSOC)) {
 		$parks[] = $park;
