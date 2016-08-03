@@ -12,7 +12,6 @@ function getDemParks($dbc){
 
     $parkTotal = $dbc->query("SELECT count(*) from national_parks")->fetchColumn();
     $maxCount = $parkTotal/4;
-
     $maxCount = ceil($maxCount);
  
 	$stmt = $dbc->query("SELECT * FROM national_parks LIMIT 4 offset {$offset}");
@@ -23,7 +22,7 @@ function getDemParks($dbc){
 	return [
 	 'parks' => $parks,
 	 'page' => $page,
-	 'maxCount' => $maxCount
+	 'maxCount' => $maxCount,
 	];
 }
 extract(getDemParks($dbc));
@@ -76,11 +75,9 @@ extract(getDemParks($dbc));
 		                                    </a>
 		                                <?php endif; ?>
 		                                </li>
-		                               <!--  <li><a href="?page=1">1</a></li>
-		                                <li><a href="?page=2">2</a></li>
-		                                <li><a href="?page=3">3</a></li>
-		                                <li><a href="?page=4">4</a></li>
-		                                <li><a href="?page=5">5</a></li> -->
+		                                <?php for($i = 1; $i <= $maxCount; $i++): ?>
+		                                <?= "<li><a href='?page=" . $i ."'>" . $i . "</a></li>" ?>
+		                            <?php endfor; ?>
 		                                <li>
 		                                	<?php if($page < $maxCount): ?>
 		                                    <a href="?page=<?= $page +1 ?>" aria-label="Next">
