@@ -8,13 +8,20 @@ require_once '../park_migration.php';
 function getDemParks($dbc){
 
 	$page = !(Input::has('page')) ? 1 : Input::get('page');
-    $offset = $page * 4 - 4;
+	$limit = 4;
+    $offset = $page * $limit - $limit;
 
     $parkTotal = $dbc->query("SELECT count(*) from national_parks")->fetchColumn();
     $maxCount = $parkTotal/4;
     $maxCount = ceil($maxCount);
- 
-	$stmt = $dbc->query("SELECT * FROM national_parks ORDER BY date_established DESC LIMIT 4 offset {$offset}");
+	//$stmt = $dbc->query("SELECT * FROM national_parks ORDER BY date_established DESC LIMIT 4 offset {$offset}");
+
+	$stmt = $dbc->prepare("SELECT * FROM national_parks ORDER BY date_established DESC LIMIT :limit offset :offset");
+	$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+	$stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+	$stmt->execute();
+
+
 	$parks = [];
 	while($park = $stmt->fetch(PDO::FETCH_ASSOC)) {
 		$parks[] = $park;
@@ -43,7 +50,7 @@ extract(getDemParks($dbc));
 	<body>
 		<h1>National Parks</h1><br>
 		<div class="container">
-			<section class="col-md-6">
+			<section class="col-sm-12">
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
@@ -51,6 +58,7 @@ extract(getDemParks($dbc));
 							<th>Location</th>
 							<th>Date Established</th>
 							<th>Total Area (Acres)</th>
+							<th>Description</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -60,12 +68,13 @@ extract(getDemParks($dbc));
 								<td><?= $park['location']; ?></td>
 								<td><?= $park['date_established']; ?></td>
 								<td><?= $park['area_in_acres']; ?></td>
+								<td><?= $park['description']; ?></td>
 							</tr>
 						<?php endforeach; ?>
 					</tbody>
 		              <tfoot>
 		                <tr>
-		                    <td colspan="4">
+		                    <td colspan="12">
 		                        <nav aria-label="Page navigation" class="text-center">
 		                            <ul class="pagination">
 		                                <li>
@@ -93,6 +102,29 @@ extract(getDemParks($dbc));
 				</table>
 			</section>
 		</div>
+		<div>
+			<section class="col-md-6 col-md-offset-6" >
+				<h3>Add a National Park</h3>
+		    	<form method="POST" action="/national_parks.php">
+		        <p>
+		            <input type="text" name="name" placeholder="Park Name: ">
+		        </p>
+		        <p>
+		            <input type="text" name="location" placeholder="Location: ">
+		        </p>
+		        <p>
+		            <input type="date" name="date_established" placeholder="Date: YYYY-MM-DD ">
+		        </p>
+		        <p>
+		            <input type="text" name="area_in_acres" placeholder="Area In Acres: ">
+		        </p>
+		        <p>
+		            <input type="text" name="description" placeholder="Description: ">
+		        </p>
+		        <button type="Submit">Submit</button>
+		    	</form>
+		    </section>
+    	</div>
 	<script
 	    src="https://code.jquery.com/jquery-2.2.4.min.js"
 	    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
