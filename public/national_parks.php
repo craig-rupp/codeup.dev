@@ -2,25 +2,20 @@
 
 require_once '../db_connect.php';
 require_once '../input.php';
+
 function getDemParks($dbc){
-	
-	//require_once '../park_seeder.php';
-	
 
+	$page = !(Input::has('page')) ? 0 : Input::get('page');
+    $offset = $page * 4;
 
-	// $page = Input::get($page);
-	// // Input::get('page', 1) < 0 ? 1 : Input::get('page');
-	// $limit = 4;
- //    $offset = ($page - 1) * $limit;
-
-	$stmt = $dbc->query('SELECT * FROM national_parks');
-
+	$stmt = $dbc->query("SELECT * FROM national_parks LIMIT 4 offset {$offset}");
 	$parks = [];
 	while($park = $stmt->fetch(PDO::FETCH_ASSOC)) {
 		$parks[] = $park;
 	}
 	return [
-	 'parks' => $parks
+	 'parks' => $parks,
+	 'page' => $page
 	];
 }
 extract(getDemParks($dbc));
@@ -39,6 +34,7 @@ extract(getDemParks($dbc));
 		<title>National Parks</title>
 	</head>
 	<body>
+		<h1>National Parks</h1><br>
 		<div class="container">
 			<section class="col-md-6">
 				<table class="table table-striped table-bordered table-hover">
@@ -66,17 +62,17 @@ extract(getDemParks($dbc));
 		                        <nav aria-label="Page navigation" class="text-center">
 		                            <ul class="pagination">
 		                                <li>
-		                                    <a href="?page=<? $offset - 1?>" aria-label="Previous">
+		                                    <a href="?page=<?= $page - 1?>" aria-label="Previous">
 		                                        <span aria-hidden="true">&laquo;</span>
 		                                    </a>
 		                                </li>
-		                                <li><a href="?page=1">1</a></li>
+		                               <!--  <li><a href="?page=1">1</a></li>
 		                                <li><a href="?page=2">2</a></li>
 		                                <li><a href="?page=3">3</a></li>
 		                                <li><a href="?page=4">4</a></li>
-		                                <li><a href="?page=5">5</a></li>
+		                                <li><a href="?page=5">5</a></li> -->
 		                                <li>
-		                                    <a href="?page=<? $page +1 ?>" aria-label="Next">
+		                                    <a href="?page=<?= $page +1 ?>" aria-label="Next">
 		                                        <span aria-hidden="true">&raquo;</span>
 		                                    </a>
 		                                </li>
