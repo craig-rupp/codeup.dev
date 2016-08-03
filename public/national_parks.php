@@ -2,12 +2,19 @@
 
 require_once '../db_connect.php';
 require_once '../input.php';
+require_once '../park_seeder.php';
+require_once '../park_migration.php';
 
 function getDemParks($dbc){
 
-	$page = !(Input::has('page')) ? 0 : Input::get('page');
-    $offset = $page * 4;
+	$page = !(Input::has('page')) ? 1 : Input::get('page');
+    $offset = $page * 4 - 4;
 
+    $parkTotal = $dbc->query("SELECT count(*) from national_parks")->fetchColumn();
+    $maxCount = $parkTotal/4;
+
+    $maxCount = ceil($maxCount);
+ 
 	$stmt = $dbc->query("SELECT * FROM national_parks LIMIT 4 offset {$offset}");
 	$parks = [];
 	while($park = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -15,7 +22,8 @@ function getDemParks($dbc){
 	}
 	return [
 	 'parks' => $parks,
-	 'page' => $page
+	 'page' => $page,
+	 'maxCount' => $maxCount
 	];
 }
 extract(getDemParks($dbc));
@@ -62,9 +70,11 @@ extract(getDemParks($dbc));
 		                        <nav aria-label="Page navigation" class="text-center">
 		                            <ul class="pagination">
 		                                <li>
+		                                	<?php if($page > 1): ?>
 		                                    <a href="?page=<?= $page - 1?>" aria-label="Previous">
 		                                        <span aria-hidden="true">&laquo;</span>
 		                                    </a>
+		                                <?php endif; ?>
 		                                </li>
 		                               <!--  <li><a href="?page=1">1</a></li>
 		                                <li><a href="?page=2">2</a></li>
@@ -72,9 +82,11 @@ extract(getDemParks($dbc));
 		                                <li><a href="?page=4">4</a></li>
 		                                <li><a href="?page=5">5</a></li> -->
 		                                <li>
+		                                	<?php if($page < $maxCount): ?>
 		                                    <a href="?page=<?= $page +1 ?>" aria-label="Next">
 		                                        <span aria-hidden="true">&raquo;</span>
 		                                    </a>
+		                                <?php endif; ?>
 		                                </li>
 		                            </ul>
 		                        </nav>
