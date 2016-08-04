@@ -2,8 +2,6 @@
 
 require_once '../db_connect.php';
 require_once '../input.php';
-require_once '../park_seeder.php';
-require_once '../park_migration.php';
 
 function getDemParks($dbc){
 
@@ -14,7 +12,6 @@ function getDemParks($dbc){
     $parkTotal = $dbc->query("SELECT count(*) from national_parks")->fetchColumn();
     $maxCount = $parkTotal/4;
     $maxCount = ceil($maxCount);
-	//$stmt = $dbc->query("SELECT * FROM national_parks ORDER BY date_established DESC LIMIT 4 offset {$offset}");
 
 	$stmt = $dbc->prepare("SELECT * FROM national_parks ORDER BY date_established DESC LIMIT :limit offset :offset");
 	$stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
@@ -46,6 +43,16 @@ extract(getDemParks($dbc));
 	            integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
 	            crossorigin="anonymous">
 		<title>National Parks</title>
+		<style>
+			body{
+				background-image: url("./img/park-log.png");
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+			h1{
+				text-align: center;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>National Parks</h1><br>
@@ -94,37 +101,16 @@ extract(getDemParks($dbc));
 		                                    </a>
 		                                <?php endif; ?>
 		                                </li>
+					                	<li><a class="" id="add_park" href="national_parks_form.php">Add your favorite park!</a></li>
 		                            </ul>
 		                        </nav>
 		                    </td>
 		                </tr>
+		                <tr>
 		              </tfoot>
 				</table>
 			</section>
 		</div>
-		<div>
-			<section class="col-md-6 col-md-offset-6" >
-				<h3>Add a National Park</h3>
-		    	<form method="POST" action="/national_parks.php">
-		        <p>
-		            <input type="text" name="name" placeholder="Park Name: ">
-		        </p>
-		        <p>
-		            <input type="text" name="location" placeholder="Location: ">
-		        </p>
-		        <p>
-		            <input type="date" name="date_established" placeholder="Date: YYYY-MM-DD ">
-		        </p>
-		        <p>
-		            <input type="text" name="area_in_acres" placeholder="Area In Acres: ">
-		        </p>
-		        <p>
-		            <input type="text" name="description" placeholder="Description: ">
-		        </p>
-		        <button type="Submit">Submit</button>
-		    	</form>
-		    </section>
-    	</div>
 	<script
 	    src="https://code.jquery.com/jquery-2.2.4.min.js"
 	    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
