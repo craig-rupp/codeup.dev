@@ -52,6 +52,9 @@ extract(getDemParks($dbc));
 			h1{
 				text-align: center;
 			}
+			img{
+				opacity: .5;
+			}
 		</style>
 	</head>
 	<body>

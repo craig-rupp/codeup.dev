@@ -10,11 +10,9 @@
 // define('DB_PASS', 'vagrant');
 
 const DB_HOST = '127.0.0.1';
-const DB_NAME = 'employees';
-const DB_USER = 'vagrant';
-const DB_PASS = 'vagrant';
+const DB_NAME = 'parks_db';
+const DB_USER = 'parks_user';
+const DB_PASS = 'rocks';
 
 
 require_once 'db_connect.php';
-
-// PDO::ERRMODE_EXCEPTION); no exactly sure what this is doing

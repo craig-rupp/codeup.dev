@@ -23,6 +23,12 @@ class Input
      * @param mixed $default default value to return if key not found
      * @return mixed value passed in request
      */
+
+    public static function isPost()
+    {
+        return $_POST;
+    }
+
     public static function get($key, $default = null)
     {
         // TODO: Fill in this function
@@ -30,6 +36,26 @@ class Input
             return $_REQUEST[$key];
         } else {
             return $default;
+        }
+    }
+
+    public static function getString($key)
+    {
+        $string = self::get($key);
+
+        if(!is_string($string) || is_numeric($string)){
+            throw new Exception('$string must be a string');
+        }
+        return trim($string);
+    }
+
+    public static function getNumber($key){
+        $number = self::get($key);
+
+        if(is_numeric($number)){
+            return floatval($number);
+        } elseif(!is_numeric($number)) {
+            throw new Exception('$number must be numeric!');
         }
     }
 

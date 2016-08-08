@@ -5,16 +5,37 @@ require_once '../db_connect.php';
 
 function pageController($dbc){
 
-
+    $errors = [];
     if(Input::has('name') && Input::has('location') && Input::has('date_established')
         && Input::has('area_in_acres') && Input::has('description'))
     {
-        $name = Input::get('name');
-        $location = Input::get('location');
-        $date_established = Input::get('date_established');
-        $area_in_acres = Input::get('area_in_acres');
-        $description = Input::get('description');
+        try {
+            $name = Input::getString('name');
+        } catch (Exception $e) {
+            $errors[] = "Name " . $e->getMessage() . PHP_EOL; 
+        }
+        try {
+            $location = Input::getString('location');
+        } catch (Exception $e) {
+            $errors[] = "Location " . $e->getMessage() . PHP_EOL; 
+        }
+        try {
+            $date_established = Input::getString('date_established');
+        } catch (Exception $e) {
+            $errors[] = "Date Established " . $e->getMessage() . PHP_EOL; 
+        }
+        try {
+            $area_in_acres = Input::getNumber('area_in_acres');
+        } catch (Exception $e) {
+            $errors[] = "Area In Acres " . $e->getMessage() . PHP_EOL; 
+        }
+        try {
+            $description = Input::getString('description');
+        } catch (Exception $e) {
+            $errors[] = "Description " . $e->getMessage() . PHP_EOL; 
+        }
 
+        if(empty($errors)) {
         $stmt = $dbc->prepare('INSERT INTO national_parks (name, location, date_established, area_in_acres, description)
             VALUES (:name, :location, :date_established, :area_in_acres, :description)');
 
@@ -27,11 +48,17 @@ function pageController($dbc){
         $stmt->execute();
         var_dump($stmt);
         var_dump($name);
+            
+        }
 
     }
 
+    return [
+        'errors' => $errors
+    ];
+
 }
-pageController($dbc);
+extract(pageController($dbc));
 
 ?>
 
@@ -51,6 +78,13 @@ pageController($dbc);
         <div class="container">
             <h1 class="headline"><img class="img-responsive" src="./img/header.png"></h1><br><br>
             <form method="POST">
+                <div>
+                    <?php if(!empty($errors)) : ?>
+                        <?php foreach ($errors as $individualMessage) : ?>
+                        <p><?= $individualMessage ?></p>
+                        <?php endforeach ?>
+                    <?php endif ?> 
+                </div>
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input name="name" type="text" placeholder="New Park" class="form-control" id="name" required>
