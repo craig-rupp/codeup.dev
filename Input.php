@@ -39,24 +39,37 @@ class Input
         }
     }
 
-    public static function getString($key)
+    public static function getString($key, $min = 0, $max = 100)
     {
         $string = self::get($key);
 
-        if(!is_string($string) || is_numeric($string)){
-            throw new Exception('$string must be a string');
+        if(!is_string($string) || !is_numeric($min) || !is_numeric($max)){
+            throw new InvalidArgumentException("$string must be a string");
+        } elseif(is_numeric($string)){
+            throw new DomainException("{$string} is the  wrong type!");
+        } elseif(strlen($string) > $max) {
+            throw new LengthException("{$string} is too long, less characters");
+        } elseif(strlen($string) < $min){
+            throw new LengthException("{$string} contains no characters, type something!");
         }
         return trim($string);
     }
 
-    public static function getNumber($key){
+    public static function getNumber($key, $min = 0, $max = 100 ){
         $number = self::get($key);
 
-        if(is_numeric($number)){
-            return floatval($number);
-        } elseif(!is_numeric($number)) {
-            throw new Exception('$number must be numeric!');
-        }
+        if(!is_numeric($number) || !is_numeric($min) || !is_numeric($max)){
+            throw new InvalidArgumentException("{$number} We need integers!");
+        } elseif(is_string($number){
+            throw new DomainException("{$number} is the wrong type");
+        }elseif($number < $min){
+            throw new RangeException("{$number} does not exist, please enter some values!");
+        } elseif($number > $max){
+            throw new RangeException("{$number} Your number exceeds the max!!");
+        } elseif(empty(self::get($key))){
+            throw new OutOfRangeException("{$number} hasn't been provided");   
+        } 
+        return floatval($number);
     }
 
     ///////////////////////////////////////////////////////////////////////////

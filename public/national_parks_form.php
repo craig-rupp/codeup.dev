@@ -6,31 +6,33 @@ require_once '../db_connect.php';
 function pageController($dbc){
 
     $errors = [];
+    $min = 0;
+    $max = 100;
     if(Input::has('name') && Input::has('location') && Input::has('date_established')
         && Input::has('area_in_acres') && Input::has('description'))
     {
         try {
-            $name = Input::getString('name');
+            $name = Input::getString('name', $min, $max);
         } catch (Exception $e) {
             $errors[] = "Name " . $e->getMessage() . PHP_EOL; 
         }
         try {
-            $location = Input::getString('location');
+            $location = Input::getString('location', $min, $max);
         } catch (Exception $e) {
             $errors[] = "Location " . $e->getMessage() . PHP_EOL; 
         }
         try {
-            $date_established = Input::getString('date_established');
+            $date_established = Input::getString('date_established', $min, $max);
         } catch (Exception $e) {
             $errors[] = "Date Established " . $e->getMessage() . PHP_EOL; 
         }
         try {
-            $area_in_acres = Input::getNumber('area_in_acres');
+            $area_in_acres = Input::getNumber('area_in_acres', $min, $max);
         } catch (Exception $e) {
             $errors[] = "Area In Acres " . $e->getMessage() . PHP_EOL; 
         }
         try {
-            $description = Input::getString('description');
+            $description = Input::getString('description', $min, $max);
         } catch (Exception $e) {
             $errors[] = "Description " . $e->getMessage() . PHP_EOL; 
         }
