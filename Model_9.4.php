@@ -72,14 +72,13 @@ abstract class Model
     {
         // @TODO: Ensure there are values in the attributes array before attempting to save
 
-
-        // @TODO: Call the proper database method: if the `id` is set this is an update, else it is a insert
-        if(!empty($this->attributes)){
-            if(isset($this->attributes['id'])){
-                $this->update();
-            } else{
-                $this->insert();
-            }     
+        if(empty($this->attributes)){
+            throw new InvalidArgumentException('There are no values to insert/update');
+        }
+        if(isset($this->attributes['id'])){
+            $this->update();
+        } else{
+            $this->insert();
         }
     }
     /**

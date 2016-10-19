@@ -111,10 +111,10 @@
 		}
 		marker.addListener('dragend', function(event){
 				yourPosition = event.latLng;
-				console.log('#instructions'); 
+				//console.log('#instructions'); 
 				$('#instructions').html('');
+				//console.log(yourPosition);
 				showMyWeather();
-				console.log(yourPosition);
 				
 			})
 
