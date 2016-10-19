@@ -2,16 +2,12 @@
 
 alert("Udemy Linking External JS");
 
-$('h1').click(function(){
-			$(this).css('background-color', 'green');
-		});
-		$('p').dblclick(function(){
-			$('p').css('font-size', '18px');
-		});
-		$('li').hover(function(){
-					$(this).css('color', 'red');
-				},
-				function(){
-					$(this).css('color', 'black');
-				}
-			);
+$('#circle').click(function(){
+	alert("Circle Clicked");
+});
+$('.square').click(function(){
+	alert("Square clicked");
+})
+// $("div").click(function(){
+// 	alert("You have clicked a div");
+// })
