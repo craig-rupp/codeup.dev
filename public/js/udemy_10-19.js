@@ -19,3 +19,12 @@ $('#circle').click(function(){
 // $('.square').click(function(){
 // 	$("iframe").attr("src", "http://www.arsenal.com");
 // });
+
+$('#fadder').click(function(){
+	$('p').fadeOut(1500, function(){
+		alert("FadeOut Complete");
+	});
+});
+$('#fadeIn').click(function(){
+	$('p').fadeIn(1500);
+})

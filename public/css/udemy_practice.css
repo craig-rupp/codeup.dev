@@ -2,14 +2,14 @@ body {
 	background-color: pink;
 } 
 #circle {
-	width: 200px;
-	height: 200px;
+	width: 100px;
+	height: 100px;
 	background-color: green;
-	border-radius: 100px
+	border-radius: 50px
 }
 .square {
-	width: 200px;
-	height: 200px;
+	width: 100px;
+	height: 100px;
 	background-color: blue;
 	margin-top: 10px;
 }
