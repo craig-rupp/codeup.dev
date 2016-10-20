@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery UI</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/
+	libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <style>
+
+    #square{
+    	width: 200px;
+    	height: 200px;
+    	background-color: green;
+ 		margin-left: 35px;
+    }
+    #square_text{
+    	color: black;
+    	padding:55px 55px 55px 55px;
+    }
+
+    #resizable{
+    	width: 200px;
+    	height: 200px;
+    	background-color: red;
+ 		margin-left: 35px;
+    }
+
+    </style>
+</head>
+<body>
+	
+	<div id="square">
+		<p id="square_text">Drag Me Around</p>
+	</div><br>
+
+	<div id="resizable">
+		Resize Me
+	</div>
+
+	<script>
+
+	$('#square').draggable();
+	$('#resizable').resizable();
+
+	</script>
+
+</body>
+</html>
