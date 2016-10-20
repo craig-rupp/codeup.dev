@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validations</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/validation.css">
+</head>
+<body>
+	
+	<div id="wrapper">
+		<div id="error"></div> 
+			<form id="validation">
+				<label for="email">Email</label>
+				<input name="email" id="email" />
+
+				<label for="phone">Phone</label>
+				<input name="phone" id="phone" />
+
+				<label for="pass">Password</label>
+				<input name="pass" type="password" id="pass"/>
+
+				<label for="pass">Confirm Password</label>
+				<input name="pass" type="password" id="confirm_pass" />
+
+				<input id="submit_button" type="submit" value="Submit" />
+			</form>
+	</div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="../public/js/validation_form.js"></script>
+</body>
+</html>

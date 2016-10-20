@@ -1,0 +1,37 @@
+#test {
+	color: green;
+	text-align: center;
+}
+
+#wrapper {
+	width: 500px;
+	margin: 0 auto;
+	font-family: sans-serif;
+	font-size: 1em;
+}
+input {
+	width: 300px;
+	height: 30px;
+	padding: 5px;
+	padding-top: 10px;
+	border-radius: 5px;
+	font-size: 1.2em;
+	border: 1px solid grey;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+label{
+	width: 150px;
+	float: left;
+	padding-top: 13px;
+}
+
+#submit_button{
+	height: 50px;
+	margin-left: 150px;
+	width: 100px;
+}
+#error{
+	color: red;
+	margin: 15px;
+}
