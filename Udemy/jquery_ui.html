@@ -33,14 +33,60 @@
         background-color: yellow;
         margin-left: 35px;
     }
-
+    #EPL{
+        background-image: linear-gradient(rgba(255,255,255,0.9),rgba(255,255,255,0.5)), 
+        url("https://resources-pl.pulselive.com/ver/i/elements/premier-league-logo-header.png");
+        background-size: 180px 120px;
+        background-repeat: no-repeat;
+        width: 150px;
+        height: 150px;
+        margin-left: 35px;
+    }
+    .teams{
+        color: #001f3f;
+        opacity: 1;
+    }
+    .teams:hover{
+        color: #85144b;
+    }
+    img{
+        opacity: .5;
+    }
     </style>
 </head>
 <body>
 	
-	<div id="square"><p id="square_text">Drag Me Around</p></div><br>
+	<!-- <div id="square"><p id="square_text">Drag Me Around</p></div><br>
 	<div id="resizable">Resize Me</div><br>
-    <div id="target"></div>
+    <div id="target"></div> -->
+    <div id="accordion">
+        <h4>Arsenal</h4>
+        <div><p>Arsenal FC, we're by far the greatest team the world has ever seen. And it's Arsenal,
+            Arsenal FC, we're by far the greatest team the world has ever seen.</p>
+        </div>
+        <h4>Chelsea</h4>
+        <div><p>We are scum from the West of London, we are scum from the West of London.</p>
+        </div>
+        <h4>Tottenham</h4>
+        <div><p>20 years below AFC, when must we accept our place. New stadium looks dope</p>
+        </div>
+        <h4>Man Utd</h4>
+        <div><p>We have Jose who puts 9 behind the ball, we have Joseee wh puts 9 behind the ball. Our
+            soccer is trash but at least we fight on in Europa</p>
+        </div>
+        <h4>Man City</h4>
+        <div><p>We just ruined Pep's reunion at Barca.</p>
+        </div>
+    </div><br>
+    <div id="EPL">
+        <ol id="places">
+            <li class="teams">Man City</li>
+            <li class="teams">Arsenal</li>
+            <li class="teams">Tottenham</li>
+            <li class="teams">Chelsea</li>
+            <li class="teams">Man Utd</li>
+        </ol>
+    </div>
 
 
 	<script>
@@ -52,6 +98,8 @@
             $('#target').css("background-color", "blue");
         }
     });
+    $('#accordion').accordion();
+    $('#places').sortable();
 
 	</script>
 
