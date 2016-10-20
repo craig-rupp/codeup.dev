@@ -22,28 +22,36 @@
     }
 
     #resizable{
-    	width: 200px;
-    	height: 200px;
+    	width: 100px;
+    	height: 100px;
     	background-color: red;
  		margin-left: 35px;
+    }
+    #target{
+        width: 250px;
+        height: 250px;
+        background-color: yellow;
+        margin-left: 35px;
     }
 
     </style>
 </head>
 <body>
 	
-	<div id="square">
-		<p id="square_text">Drag Me Around</p>
-	</div><br>
+	<div id="square"><p id="square_text">Drag Me Around</p></div><br>
+	<div id="resizable">Resize Me</div><br>
+    <div id="target"></div>
 
-	<div id="resizable">
-		Resize Me
-	</div>
 
 	<script>
 
 	$('#square').draggable();
 	$('#resizable').resizable();
+    $('#target').droppable({
+        drop: function(ui, event){
+            $('#target').css("background-color", "blue");
+        }
+    });
 
 	</script>
 
