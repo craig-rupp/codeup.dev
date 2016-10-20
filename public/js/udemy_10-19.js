@@ -38,3 +38,4 @@ $('#circle').click(function(){
 		marginTop:"100px"
 		}, 800);
 })
+$('.square').draggable();
