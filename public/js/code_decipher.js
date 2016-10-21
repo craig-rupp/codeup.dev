@@ -1,6 +1,6 @@
 'use strict';
 
-console.log("We in this Bitch");
+console.log("We linked yeah");
 
 var windowHeight = $(window).height();
 var menuBarHeight = $("#titleBar").height();
@@ -22,6 +22,11 @@ $(".toggle").click(function(){
 	var width = 100/showingDivs;
 
 	$(".codeContainer").width(width + "%");
+});
+
+$("#buttonType").click(function(){
+	$("iframe").contents().find("html").html('<style>' + $("#cssCode").val() + '</style>' + $("#htmlCode").val());
+	document.getElementById("resultFrame").contentWindow.eval($('#jsCode').val());
 });
 
 

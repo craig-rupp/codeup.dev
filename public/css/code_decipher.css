@@ -54,7 +54,7 @@ body {
 	border: none;
 	border-right: 1px solid grey;
 	font-family: monotype;
-	font-size: 95%;
+	font-size: 75%;
 	box-sizing: border-box; /*able to keep border on all divs */
 	padding: 5px;
 }
