@@ -25,12 +25,12 @@ body {
 	font-size: 105%;
 }
 #toggle {
-	width: 200px;
+	width: 193.5px;
 	margin: 0 auto;
 	list-style: none;
 	border: 1px solid grey;
 	border-radius: 3px;
-	height: 30px;
+	height: 27px;
 	padding: 0;
 	position: relative;
 	top: 5px;
@@ -55,6 +55,7 @@ body {
 	border-right: 1px solid grey;
 	font-family: monotype;
 	font-size: 95%;
+	box-sizing: border-box; /*able to keep border on all divs */
 	padding: 5px;
 }
 .codeLabel {
@@ -63,7 +64,7 @@ body {
 	top: 5px;
 }
 
-#cssContainer, #jsContainer {
+#CSSContainer, #JSContainer {
 	display: none;
 }
 iframe {
@@ -71,6 +72,9 @@ iframe {
 	position: relative;
 	left: 15px;
 	border: none;
+}
+.selected {
+	background-color: grey;
 }
 
 
