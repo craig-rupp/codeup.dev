@@ -60,7 +60,7 @@ class Input
 
         if(!is_numeric($number) || !is_numeric($min) || !is_numeric($max)){
             throw new InvalidArgumentException("{$number} We need integers!");
-        } elseif(is_string($number){
+        } elseif(is_string($number)){
             throw new DomainException("{$number} is the wrong type");
         }elseif($number < $min){
             throw new RangeException("{$number} does not exist, please enter some values!");
