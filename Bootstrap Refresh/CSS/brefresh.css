@@ -19,3 +19,6 @@
 	height: 250px;
 	background-color: lightblue;
 }
+.alert {
+	display: none;
+}
